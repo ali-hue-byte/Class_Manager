@@ -18,33 +18,31 @@ from PySide6.QtWidgets import (QApplication,
                                QItemDelegate, QVBoxLayout, QSizePolicy)
 from App import Ui_Dialog, InfoButton
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve, QPoint, QDate, QRect, QSize
-from Functions import (
-    hash_password,
-    save_data,
-    load_data,
-    KDF2,
-    decrypt_data,
-    encrypt_data,
-
-    add_student,
-    add_class,
-    add_subject,
-    add_grade,
-    mark_attendance,
-select_class,
-delete_student,
-delete_class,
-delete_subject_)
+from Functions import (hash_password,
+                       save_data,
+                       load_data,
+                       KDF2,
+                       decrypt_data,
+                       encrypt_data,
+                       add_student,
+                       add_class,
+                       add_subject,
+                       add_grade,
+                       mark_attendance,
+                       select_class,
+                       delete_student,
+                       delete_class,
+                       delete_subject_)
 from PySide6.QtCore import Qt
 import re
 import random
-
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import sqlite3
 
-# Connecting to SQLite and creating tables if they don't existconn = sqlite3.connect('data.db')
+# Connecting to SQLite and creating tables if they don't exist
+conn = sqlite3.connect('data.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS students (
                     student_id INTEGER,
