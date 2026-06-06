@@ -46,11 +46,29 @@ python Student_Management.py
 
 --- 
 
-## Files
+## Project Structure
 
-- **Student_Management.py** – The main Python file used to run the application.
-- **App.py** – The Python file generated from Qt Designer that contains all the UI widgets and layouts.
-- **Functions.py** - Python file containing helper functions used throughout the app.
+### Class_Manager-main/
+- **App.py** - Assembles all page UIs into a single dialog window
+- **Student_Management_main.py** - Main entry point of the application
+#### UI/
+- **Authentication_UI.py** - Defines the LogIn and create account pages layout and widgets
+- **Home_UI.py** - Defines the home page layout and widgets
+- **Class_UI.py** - Defines the classes page layout and widgets
+- **Students_UI.py** - Defines the students page layout and widgets
+- **Grades_UI.py** - Defines the grades page layout and widgets
+- **Attendance_UI.py** - Defines the attendance page layout and widgets
+- **Statistics_UI.py** - Defines the statistics page layout and widgets
+- **Settings_UI.py** - Defines the settings page layout and widgets
+
+#### Logic/
+- **Buttons.py** - Handles all button click events and user interactions
+- **Functions.py** - Contains utility functions for SQLite database operations and security
+- **Utils.py** - Contains UI utility functions and custom widgets
+
+#### Display/
+- **Graphs.py** - Handles all data visualisation using matplotlib plots
+- **Tables.py** - Handles all data placement in tables
 
 
 ## Screenshots 
