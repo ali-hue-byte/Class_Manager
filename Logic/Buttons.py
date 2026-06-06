@@ -551,9 +551,9 @@ def Save_btn_2(self):
     for i in range(self.ui.tableWidget_class.rowCount()):
         name = self.ui.tableWidget_class.item(i, 0).text() if self.ui.tableWidget_class.item(i, 0) else ""
         total = self.ui.tableWidget_class.item(i, 1).text() if self.ui.tableWidget_class.item(i, 1) else 0
-        max = self.ui.tableWidget_class.item(i, 2).text() if self.ui.tableWidget_class.item(i, 2) else 0
+        max_n = self.ui.tableWidget_class.item(i, 2).text() if self.ui.tableWidget_class.item(i, 2) else 0
 
-        if not max.isdigit():
+        if not max.isdigit() or total > max_n:
             err = True
             item = self.ui.tableWidget_class.item(i, 2)
             if item:
@@ -564,7 +564,7 @@ def Save_btn_2(self):
                 item.setBackground(QColor("#FFF9C4"))
 
         new_data["Classes"][name] = {"class_Name": name,
-                                     "Max_students": max,
+                                     "Max_students": max_n,
                                      "Total_students": total}
 
     if err:
