@@ -20,16 +20,16 @@ from Logic.Functions import (hash_password,
                        add_class,
                        add_subject,
                        add_grade,
-                       SALT)
+                       widgets_operations,
+                       SALT,
+                       refresh_combo_id)
 from Logic.Utils import (wrap_with_shadow,
                    unwrap_shadow,
                    update_line,
                    reset_line,
                    update_line2,
                    reset_line2,
-                   animate_page,
-                   widgets_operations,
-                   refresh_combo_id)
+                   animate_page)
 from Display.Graphs import (refresh_graph1,
                               refresh_graph2,
                               refresh_graph3,
