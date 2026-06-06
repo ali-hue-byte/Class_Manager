@@ -1,3 +1,7 @@
+# ============================================================
+# Main Application UI
+# Assembles all page UIs into a single dialog window
+# ============================================================
 
 from PySide6.QtCore import (QCoreApplication,
                             QMetaObject, QRect,
@@ -52,12 +56,11 @@ class Ui_Dialog(HomeUI, StudentUI, ClassUI, GradesUI, AttendanceUI, StatisticsUI
         ### ------ Authentication page ------
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-
         self.Auth_setup(Dialog)
+        ### -------------------------------
         self.stackedWidget.addWidget(self.page_2)
 
-
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(1) # sets current page to authentication page
         self.retranslateUi(Dialog)
 
 
@@ -72,18 +75,11 @@ class Ui_Dialog(HomeUI, StudentUI, ClassUI, GradesUI, AttendanceUI, StatisticsUI
         Dialog.setWindowIcon(icon)
 
         self.Home_retranslate(Dialog)
-
         self.Students_retranslate(Dialog)
-
         self.Grades_retranslate(Dialog)
-
         self.Class_retranslate(Dialog)
-
         self.Attendance_retranslate(Dialog)
-
         self.Statistics_retranslate(Dialog)
-
         self.Settings_retranslate(Dialog)
-
         self.Auth_retranslate(Dialog)
 
