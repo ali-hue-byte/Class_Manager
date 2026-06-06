@@ -1,3 +1,8 @@
+# ============================================================
+# Students Page UI
+# Defines the students page layout and widgets
+# ============================================================
+
 from Logic.Utils import HoverButton
 
 from PySide6.QtCore import (QCoreApplication, QDate, QRect, Qt)
