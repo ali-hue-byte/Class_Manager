@@ -1,15 +1,23 @@
+# ============================================================
+# Helpful classes and functions for events
+# Contains utility functions and classes for :
+# - Custom Buttons and Frames
+# - Widgets style
+# - Animations
+# ============================================================
+
+
 from PySide6.QtWidgets import (QLineEdit,
                                QGraphicsOpacityEffect,
                                QGraphicsDropShadowEffect,
                                QFrame, QLabel, QPushButton)
 from PySide6.QtCore import (QPoint, QRect,Qt,QTimer,QPropertyAnimation, QEasingCurve)
+
 from PySide6.QtGui import QColor
-from Logic.Functions import animate_title, decrypt_data
-import sqlite3
+from Logic.Functions import decrypt_data
 
-conn = sqlite3.connect('data.db')
-c = conn.cursor()
 
+# Shows Tooltip when hovered
 class InfoButton(QPushButton):
     def __init__(self, parent=None, page=None, text=None, pos=None):
         super().__init__(parent)
@@ -40,7 +48,7 @@ class InfoButton(QPushButton):
         self.hover_timer.stop()
         self.label.hide()
 
-
+# Expands when hovered
 class HoverButton(QPushButton):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -75,7 +83,8 @@ class HoverButton(QPushButton):
             self.anim.start()
         super().leaveEvent(event)
 
-
+# Expands the current frame while shrinking the other,
+# and adjusts title positions accordingly
 class HoverFrame(QFrame):
     def __init__(self, parent=None,
                  frame=None,
@@ -95,7 +104,6 @@ class HoverFrame(QFrame):
                  combo1=None,
                  com1s=None,
                  com1e=None,
-
                  lbl=None,
                  lbls=None,
                  lble=None,
@@ -243,6 +251,7 @@ class HoverFrame(QFrame):
 
 
 def wrap_with_shadow(widget, opacity=120):
+    """ Gives shadow effect to a widget """
     shadow = widget.graphicsEffect()
 
     if isinstance(shadow, QGraphicsDropShadowEffect):
@@ -259,6 +268,7 @@ def wrap_with_shadow(widget, opacity=120):
 
 
 def wrap_with_shadow2(frame, x):
+    """ Gives shadow effect to tables """
     wrapper = getattr(frame, "_shadow_wrapper", None)
 
     if wrapper:
@@ -298,6 +308,7 @@ def wrap_with_shadow2(frame, x):
 
 
 def unwrap_shadow(frame):
+    """ Removes shadow effect """
     wrapper = getattr(frame, "_shadow_wrapper", None)
     if not wrapper:
         return
@@ -312,24 +323,15 @@ def unwrap_shadow(frame):
     frame._shadow_wrapper = None
 
 
-def refresh_combo_id(self, user, classe):
-    c.execute("SELECT student_id,class FROM students WHERE user =? ", (user,))
-    students_rows = c.fetchall()
-    students = []
-    self.ui.id_combobox.clear()
-    for i in students_rows:
-        if decrypt_data(i[1], self.kdf) == classe:
-            students.append(str(i[0]))
-    for i, j in enumerate(students):
-        if self.ui.id_combobox.findText(j) == -1:
-            self.ui.id_combobox.insertItem(i, j)
 
 def empty(lines):
+
     for line in lines:
         line.clear()
 
 
-def toogle(self, line, tool_btn):
+def toggle(self, line, tool_btn):
+    """ Toggles password visibility """
     if line.echoMode() == QLineEdit.EchoMode.Password:
         line.setEchoMode(QLineEdit.EchoMode.Normal)
         tool_btn.setIcon(self.icon_show)
@@ -339,6 +341,7 @@ def toogle(self, line, tool_btn):
 
 
 def update_line(line):
+    """ Applies error styling to an input field by adding a red border """
     line.setStyleSheet(u"QLineEdit {\n"
                        "    border-radius: 12px;\n"
                        "    padding: 8px 12px;\n"
@@ -350,6 +353,7 @@ def update_line(line):
 
 
 def reset_line(line):
+    """ Resets input field styling to its default appearance """
     line.setStyleSheet(u"QLineEdit {\n"
                        "    border-radius: 12px;\n"
                        "    padding: 8px 12px;\n"
@@ -384,6 +388,7 @@ def reset_line2(line):
                        "}")
 
 def creat_acc_animation(self, widgets, widgets2):
+    """ Animates the transition from login page to create account page """
     self.ui.label_errn.hide()
     for i in self.lines:
         reset_line(i)
@@ -411,6 +416,7 @@ def creat_acc_animation(self, widgets, widgets2):
 
 
 def creat_log_animation(self, widgets, widgets2):
+    """ Animates the transition from create account page to login page """
     self.ui.label_errn.hide()
     for i in self.lines:
         reset_line(i)
@@ -438,6 +444,7 @@ def creat_log_animation(self, widgets, widgets2):
 
 
 def animate_page(self, pag, x, y, color="black", b=0, w=990, h=560):
+    """ Fades a page in or out """
     overlay = QFrame(pag)
     overlay.setGeometry(0, 0, w, h)
     overlay.setStyleSheet(f"background-color: {color};"
@@ -465,15 +472,14 @@ def animate_page(self, pag, x, y, color="black", b=0, w=990, h=560):
 
 
 
-def widgets_operations(self, choice):
-    for i,j in self.widgets.items():
-        if choice not in j or "error_labels" in j:
-            i.hide()
-            unwrap_shadow(i)
+def animate_title(title, start, end):
+    """ Animates the position of a title label for Graphs """
 
-        else :
-            i.show()
-
-        if "widgets_to_clear" in j :
-            i.clear()
-            unwrap_shadow(i)
+    if hasattr(title, "anim"):
+        title.anim.stop()
+    title.anim = QPropertyAnimation(title, b"pos")
+    title.anim.setDuration(200)
+    title.anim.setStartValue(start)
+    title.anim.setEndValue(end)
+    title.anim.setEasingCurve(QEasingCurve.Type.InOutQuad)
+    title.anim.start()
