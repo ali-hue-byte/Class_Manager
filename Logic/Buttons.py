@@ -159,7 +159,7 @@ def log_clicked(self):
     username = str(self.ui.lineEdit_5.text())
     password = str(self.ui.lineEdit_6.text())
     data = load_data()
-    # checks username and passsword
+    # checks username validity and passsword
     if username == "" or password == "":
         reset_line(self.ui.lineEdit_5)
         reset_line(self.ui.lineEdit_6)
