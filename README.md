@@ -46,6 +46,15 @@ python Student_Management.py
 
 --- 
 
+## Security
+
+- **Password Hashing** - Passwords are hashed using SHA-256 with a random salt
+- **Data Encryption** - All student data is encrypted using Fernet symmetric encryption
+- **Key Derivation** - Encryption keys are derived from the user's password using PBKDF2-SHA256 with 100,000 iterations
+- **Per user Isolation** - Each user can only access their own data
+
+---
+
 ## Project Structure
 
 ### Class_Manager-main/
