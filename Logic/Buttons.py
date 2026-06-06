@@ -66,7 +66,7 @@ def creat_clicked(self):
     password = str(self.ui.lineEdit_2_n.text())
     data = load_data()
 
-    # checks username and password strength
+    # checks username validity and password strength
     if username == "" or password == "":
         reset_line(self.ui.lineEdit_n)
         reset_line(self.ui.lineEdit_2_n)
