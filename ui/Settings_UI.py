@@ -1,3 +1,8 @@
+# ============================================================
+# Settings Page UI
+# Defines the settings page layout and widgets
+# ============================================================
+
 from Logic.Utils import HoverButton
 
 from PySide6.QtCore import QCoreApplication, QRect
