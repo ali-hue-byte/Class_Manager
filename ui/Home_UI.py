@@ -1,3 +1,7 @@
+# ============================================================
+# Home Page UI
+# Defines the home page layout and widgets
+# ============================================================
 
 from PySide6.QtCore import (QCoreApplication, QRect, QSize, Qt, )
 from PySide6.QtGui import QIcon
