@@ -18,12 +18,13 @@ from Logic.Functions import (load_data,
                        select_class,
                        delete_student,
                        delete_class,
-                       delete_subject_)
+                       delete_subject_,
+                       wrap_with_shadow2,
+                       wrap_with_shadow,
+                       unwrap_shadow)
 
-from Logic.Utils import (InfoButton,
-                   wrap_with_shadow2,
-                   wrap_with_shadow,
-                   unwrap_shadow)
+from Logic.Utils import InfoButton
+                   
 
 from PySide6.QtCore import Qt
 
