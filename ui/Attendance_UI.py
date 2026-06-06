@@ -1,3 +1,9 @@
+# ============================================================
+# Attendance Page UI
+# Defines the attendance marking page layout and widgets
+# ============================================================
+
+
 
 from PySide6.QtCore import (QCoreApplication, QDate, QRect,Qt)
 from PySide6.QtWidgets import (QLabel,QComboBox, QDateEdit, QTableWidget, QTableWidgetItem, QHeaderView,
