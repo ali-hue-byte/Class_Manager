@@ -41,7 +41,7 @@ python -m pip install matplotlib PySide6 cryptography
 3. Run the main application:
 
 ```bash
-python Student_Management.py
+python Student_Management_main.py
 ```
 
 --- 
