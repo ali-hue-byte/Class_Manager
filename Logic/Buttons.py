@@ -24,7 +24,7 @@ from Logic.Functions import (hash_password,
                        SALT,
                        refresh_combo_id,
                        wrap_with_shadow,
-                       unwrap_shadow,)
+                       unwrap_shadow)
 from Logic.Utils import (update_line,
                    reset_line,
                    update_line2,
