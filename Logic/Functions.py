@@ -5,11 +5,10 @@
 # - Data encryption and decryption
 # - Password hashing
 # - User data (load/save)
-# - Animation
 # ============================================================
 
 
-from PySide6.QtCore import (QPropertyAnimation, QEasingCurve)
+
 import os
 from cryptography.fernet import Fernet
 import hashlib
@@ -18,7 +17,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import base64
 import pickle
 import sqlite3
-
+from Logic.Utils import unwrap_shadow
 
 USER = "users.pkl"
 
@@ -101,19 +100,31 @@ def delete_subject_(user,subject):
     c.execute("DELETE FROM grades WHERE user = ? AND subject = ?", (user, subject))
     conn.commit()
 
-def animate_title(title, start, end):
-    """ Animates the position of a title label for Graphs """
+def widgets_operations(self, choice):
+    for i,j in self.widgets.items():
+        if choice not in j or "error_labels" in j:
+            i.hide()
+            unwrap_shadow(i)
 
-    if hasattr(title, "anim"):
-        title.anim.stop()
-    title.anim = QPropertyAnimation(title, b"pos")
-    title.anim.setDuration(200)
-    title.anim.setStartValue(start)
-    title.anim.setEndValue(end)
-    title.anim.setEasingCurve(QEasingCurve.Type.InOutQuad)
-    title.anim.start()
+        else :
+            i.show()
+
+        if "widgets_to_clear" in j :
+            i.clear()
+            unwrap_shadow(i)
 
 
+def refresh_combo_id(self, user, classe):
+    c.execute("SELECT student_id,class FROM students WHERE user =? ", (user,))
+    students_rows = c.fetchall()
+    students = []
+    self.ui.id_combobox.clear()
+    for i in students_rows:
+        if decrypt_data(i[1], self.kdf) == classe:
+            students.append(str(i[0]))
+    for i, j in enumerate(students):
+        if self.ui.id_combobox.findText(j) == -1:
+            self.ui.id_combobox.insertItem(i, j)
 
 def load_data():
     """ Loads users data from pickle file (username / hash of password / maximum score) """
