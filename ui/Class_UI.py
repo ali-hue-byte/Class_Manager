@@ -1,3 +1,8 @@
+# ============================================================
+# Class Page UI
+# Defines the Class page layout and widgets
+# ============================================================
+
 from Logic.Utils import HoverButton
 
 from PySide6.QtCore import (QCoreApplication, QRect, Qt)
