@@ -26,9 +26,9 @@ from Display.Tables import (refresh_attendance,
                     refresh_grades,
                     refresh_view)
 from Logic.Utils import (creat_acc_animation,
-                   creat_log_animation,
-                   toogle,
-                         refresh_combo_id)
+                         creat_log_animation,
+                         toggle)
+from Logic.Functions import refresh_combo_id
 from Logic.Buttons import (Edit_btn,
                      Save_btn_,
                      Canceled,
@@ -304,11 +304,11 @@ class Main_app(QMainWindow):
         ### ------ Signal connexions ------
         ## -- Create account page --
         self.ui.pushButton_n.clicked.connect(lambda: creat_clicked(self))
-        self.ui.toolButton_2.clicked.connect(lambda: toogle(self, self.ui.lineEdit_2_n, self.ui.toolButton_2))
+        self.ui.toolButton_2.clicked.connect(lambda: toggle(self, self.ui.lineEdit_2_n, self.ui.toolButton_2))
         self.ui.label_7_n.linkActivated.connect(lambda: creat_acc_animation(self, self.widgets_acc, self.widgets_log))
         ## -- LogIn page --
         self.ui.pushButton_5.clicked.connect(lambda: log_clicked(self))
-        self.ui.toolButton.clicked.connect(lambda: toogle(self, self.ui.lineEdit_6, self.ui.toolButton))
+        self.ui.toolButton.clicked.connect(lambda: toggle(self, self.ui.lineEdit_6, self.ui.toolButton))
         self.ui.label_10.linkActivated.connect(lambda: creat_log_animation(self, self.widgets_log, self.widgets_acc))
         ## -- Home page --
         # Buttons at the top
