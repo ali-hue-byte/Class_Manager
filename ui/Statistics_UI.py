@@ -1,3 +1,8 @@
+# ============================================================
+# Statistics Page UI
+# Defines the statistics page layout and widgets
+# ============================================================
+
 from Logic.Utils import HoverFrame
 
 from PySide6.QtCore import (QCoreApplication, QDate, QPoint, QRect, Qt, QPropertyAnimation)
