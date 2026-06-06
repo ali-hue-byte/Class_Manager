@@ -1,3 +1,8 @@
+# ============================================================
+# Authentication Page UI
+# Defines the authentication page layout and widgets
+# ============================================================
+
 from Logic.Utils import HoverButton
 
 from PySide6.QtCore import (QCoreApplication, QRect,
