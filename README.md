@@ -4,6 +4,7 @@
 ## Detailed Description
 This project is a modern, user-friendly Student Management System built with PySide6 and Qt Designer, designed to simplify student management for teachers and facilitate data visualization. It provides a clean, interactive interface with smooth animations and real-time updates, allowing users to easily manage students, classes, grades, attendance, and statistics. The system ensures data security with encryption while offering dynamic visualizations and intuitive navigation across all screens.
 
+## Features
 - Modern UI built with PySide6 
 - Animated transitions between the login and create account screens
 - Login screen with username and password fields, including input validation
