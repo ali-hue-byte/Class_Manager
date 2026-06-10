@@ -24,26 +24,6 @@ This project is a modern, user-friendly Student Management System built with PyS
 - **Configurable maximum marks**- Teachers can set the maximum score.
 
   
----
-
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ali-hue-byte/Class_Manager.git
-cd Class_Manager
-```
-2. Install the required dependencies:
-
-```bash
-python -m pip install matplotlib PySide6 cryptography
-```
-3. Run the main application:
-
-```bash
-python Student_Management_main.py
-```
 
 --- 
 
@@ -80,6 +60,27 @@ python Student_Management_main.py
 - **Graphs.py** - Handles all data visualisation using matplotlib plots
 - **Tables.py** - Handles all data placement in tables
 
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ali-hue-byte/Class_Manager.git
+cd Class_Manager
+```
+2. Install the required dependencies:
+
+```bash
+python -m pip install matplotlib PySide6 cryptography
+```
+3. Run the main application:
+
+```bash
+python Student_Management_main.py
+```
+---
 
 ## Screenshots 
 
